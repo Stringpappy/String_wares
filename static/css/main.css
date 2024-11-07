@@ -1,0 +1,118 @@
+/** header**/
+body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ff7f50; /* Coral color */
+            padding: 20px;
+        }
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .search-container {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            margin: 0 20px;
+        }
+        .search-bar {
+            width: 60%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .search-button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            background-color: #4CAF50; /* Green */
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .search-button:hover {
+            background-color: #45a049;
+        }
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            background-color: #4CAF50; /* Green */
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        } 
+/** body **/
+
+
+body{
+  display: grid;
+  background-color: mediumaquamarine; 
+  
+}
+.productbox{
+  display: flex;
+ 
+}
+.product{
+  border:2px solid grey;
+   margin:15px
+}
+
+
+form button{
+  color:orange;
+  background-color: greenyellow;
+  border-radius: 30%;
+  padding: 4px;
+  justify-self: center;
+  font-size: 20px;
+}
+form img{
+  max-width: 100px;
+  max-height: 100px
+}
+form label{
+  width:10px;
+  height: 
+}
+/**product pix**/
+.productpix {
+            border:3px solid red;
+            height:30px;
+            width: 30px;
+            background-color: pink;
+}

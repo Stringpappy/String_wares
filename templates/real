@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .product {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin: 16px;
+            text-align: center;
+        }
+        #cart {
+            margin-top: 20px;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+        }
+        button {
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="product">
+        <h2>Stylish Wristwatch</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Stylish Wristwatch">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+	<h2>Guitar</h2>
+        <p>Price: $300</p>
+        <form method="POST" action="/">                                                                           <input type="hidden" name="item" value="Guitar">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>                                             </form>
+	<hr>
+	<h2>cloth</h2>
+        <p>Price: $200.99</p>
+        <form method="POST" action="/">                                                                           <input type="hidden" name="item" value="cloth">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>                                             </form>
+
+    </div>
+
+    <div id="cart">
+        <h3>Shopping Cart</h3>
+        <ul>
+            {% for item, quantity in cart.items() %}
+                <li class="cart-item">
+                    {{ item }}: 
+                    <div class="quantity-controls">
+                        <form method="POST" action="/" style="display: inline;">
+                            <input type="hidden" name="item" value="{{ item }}">
+                            <input type="number" name="quantity" value="{{ quantity }}" min="0" style="width: 40px;" readonly>
+                            <button type="submit" name="update">+</button>
+                        </form>
+                        <form method="POST" action="/" style="display: inline;">
+                            <input type="hidden" name="item" value="{{ item }}">
+                            <input type="number" name="quantity" value="{{ quantity - 1 }}" min="0" style="width: 40px;" hidden>
+                            <button type="submit" name="update">-</button>
+                        </form>
+                    </div>
+                    <form method="POST" action="/" style="display: inline;">
+                        <input type="hidden" name="item" value="{{ item }}">
+                        <button type="submit" name="remove">Remove</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total items in cart: {{ cart|length }}</p>
+    </div>
+
+</body>
+</html>
+
