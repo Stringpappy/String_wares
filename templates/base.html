@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="static/css/main.css">
+  <title>{% block title %} cloth {% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="brand">String Wares</div>
+        
+        <div class="dropdown">
+            <button class="button">Menu</button>
+            <div class="dropdown-content">
+                <a href="{{url_for('clothe')}}">Cloth</a>
+                <a href="#">Item 2</a>
+                <a href="#">Item 3</a>
+                <a href="#">Item 4</a>
+                <a href="#">Item 5</a>
+                <a href="#">Item 6</a>
+                <a href="#">Item 7</a>
+            </div>
+        </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
+        
+        <button class="button"><a  href="{{ url_for('cartlist') }}">Go to Cart</a></a>
+            
+          </button>
+        <button class="button">Sign In</button>
+        
+          </div>
+            
+        </header>
+
+        <main>
+            {% block content%} {% endblock %}
+        </main>
+        <footer >
+            <p>&copy; my backend project</p>
+        </footer>
+</body>
+</html>

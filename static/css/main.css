@@ -1,8 +1,5 @@
 /** header**/
-body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
+
         header {
             display: flex;
             justify-content: space-between;
@@ -68,7 +65,7 @@ body {
             border: none;
             border-radius: 4px;
             color: white;
-            background-color: #4CAF50; /* Green */
+            background-color: #af4c91; /* Green */
             cursor: pointer;
             margin-left: 10px;
         }
@@ -94,12 +91,13 @@ body{
 
 
 form button{
-  color:orange;
-  background-color: greenyellow;
-  border-radius: 30%;
-  padding: 4px;
-  justify-self: center;
+  color:white;
+  background-color: rgb(61, 47, 255);
+  margin-left:9px ;
+  padding: px;
   font-size: 20px;
+  border-radius: 10px;
+
 }
 form img{
   max-width: 100px;
@@ -116,3 +114,8 @@ form label{
             width: 30px;
             background-color: pink;
 }
+.product img{
+    height: 300px;
+    width: 300px;
+}
+

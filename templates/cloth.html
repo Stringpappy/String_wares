@@ -1,0 +1,87 @@
+ {% extends 'base.html' %}
+  {% block title %} item list {% endblock %}
+    <style> 
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            width: auto;
+            height: auto;
+            gap: 19px;
+        }
+
+        .grid-item {
+            background-color: #4CAF50;
+            border: 1px solid rgb(0, 0, 0);
+            width: 100%;
+            height: 100px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        } **/
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+    </style>
+ {% block content %}
+<body>
+    <div class="grid-container">
+        {% for image in images %}
+            <div class="grid-item">
+                <img  src="{{ url_for('static', filename='images/j.jpg') }}" alt="">
+                <p>Price: $99.99</p>
+                <form method="POST" action="/">
+                    <input type="hidden" name="item" value="Guitar">
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" name="quantity" min="1" value="1">
+                    <button type="submit" name="add">Add to Cart</button>
+                </form>
+                
+            </div>
+            
+        {% endfor %}
+    </div>
+
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="{{ url_for('grid_view', page=1) }}">&laquo; First</a>
+            <a href="{{ url_for('grid_view', page=page-1) }}">Previous</a>
+        {% endif %}
+        
+        <span>Page {{ page }} of {{ total_pages }}</span>
+
+        {% if page < total_pages %}
+            <a href="{{ url_for('grid_view', page=page+1) }}">Next</a>
+            <a href="{{ url_for('grid_view', page=total_pages) }}">Last &raquo;</a>
+        {% endif %}
+    </div>
+    {% endblock %}
+</body>
+</html>

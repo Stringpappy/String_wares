@@ -51,6 +51,17 @@ def index():
 
     return render_template('index.html', cart=cart.view_cart())
 
+@app.route('/cartlist')
+def cartlist():
+    """Render the cart page displaying the current items in the cart."""
+    return render_template('cart_list.html', cart=cart.view_cart())
+
+
+@app.route("/cloth")
+def clothe():
+    return render_template('cloth.html')
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

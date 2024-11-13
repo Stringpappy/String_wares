@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cartlist</title>
+</head>
+<body>
+    <div id="cart">
+        <h3>Shopping Cart</h3>
+        <ul>
+            {% for item, quantity in cart.items() %}
+                <li class="cart-item">
+                    {{ item }}:
+                    <div class="quantity-controls">
+                        <form method="POST" action="/" style="display: inline;">
+                            <input type="hidden" name="item" value="{{ item }}">
+                            <input type="number" name="quantity" value="{{ quantity }}" min="0" style="width: 40px;" readonly>
+                            <button type="submit" name="update">+</button>
+                        </form>
+                        <form method="POST" action="/" style="display: inline;">
+                            <input type="hidden" name="item" value="{{ item }}">
+                            <input type="number" name="quantity" value="{{ quantity - 1 }}" min="0" style="width: 40px;" hidden>
+                            <button type="submit" name="update">-</button>
+                        </form>
+                    </div>
+                    <form method="POST" action="/" style="display: inline;">
+                        <input type="hidden" name="item" value="{{ item }}">
+                        <button type="submit" name="remove">Remove</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total items in cart: {{ cart|length }}</p>
+    </div>
+</body>
+</html>

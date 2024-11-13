@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Categories</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: blueviolet;
+        }
+        h1 {
+            text-align: center;
+        }
+        .category {
+            margin-bottom: 30px;
+        }
+        .category h2 {
+            font-size: 24px;
+        }
+        .product {
+            display: inline-block;
+            width: 200px;
+            text-align: center;
+            margin: 10px;
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+        }
+        .product a {
+            text-decoration: none;
+            color: black;
+        }
+        .product figcaption {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clothing Categories</h1>
+
+    {% for category, products in categorized_products.items() %}
+    <div class="category">
+        <h2>{{ category | capitalize }}</h2>
+        <div class="products">
+            {% for product in products %}
+            <div class="product">
+                <a href="{{ product.link }}">
+                    <img src="{{ product.image }}" alt="{{ product.name }}">
+                    <figcaption>{{ product.name }}</figcaption>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>

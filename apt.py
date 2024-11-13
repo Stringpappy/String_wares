@@ -1,259 +1,109 @@
-<!DOCTYPE html>
+from flask import Flask, render_template, request, redirect, url_for
+from math import ceil
 
-<html>
-<head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" href="style.css"
-  <title>Flirtme</title>
-</head>
-<body>
-    <div class="productbox">
-        <div class="product">
-        <h2>Stylish Wristwatch</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Stylish Wristwatch">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Guitar</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Guitar">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>blazzer</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Blazzer">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Clipper</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Clipper">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
-    <div class="productbox">
-        <div class="product">
-        <h2>Television</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Television">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>blanket</h2>
-        <p>Price: $40.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Blanket">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>fam</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Fan">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Stylish Wristwatch</h2>
-        <p>Price: $30.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Stylish Wristwatch">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
-    <div class="productbox">
-        <div class="product">
-        <h2>Microwave</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Microwave">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>bed</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Bed">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>shoe</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Shoe">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Air Conditon</h2>
-        <p>Price: $150.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Air Condition">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
-    <div class="productbox">
-        <div class="product">
-        <h2>Headset
-        </h2>
-        <p>Price: $20.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Headset">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Phone</h2>
-        <p>Price: $300.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Phone">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Trousers</h2>
-        <p>Price: $19.89</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Trousers">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Dumbel</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Dumbel">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div> 
-    <div class="productbox">
-        <div class="product">
-        <h2>Stabilizer</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Stabilizer">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Iron</h2>
-        <p>Price: $20.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Iron">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Laptop</h2>
-        <p>Price: $300.55</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Laptop">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Sewing machine</h2>
-        <p>Price: $55.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Sewing machine">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
+app = Flask(__name__)
 
+class ShoppingCart:
+    def __init__(self):
+        self.cart = {}
+
+    def add_to_cart(self, item, quantity=1):
+        """Add an item to the cart with a specified quantity."""
+        if item in self.cart:
+            self.cart[item] += quantity
+        else:
+            self.cart[item] = quantity
+
+    def remove_from_cart(self, item):
+        """Remove an item from the cart."""
+        if item in self.cart:
+            del self.cart[item]
+
+    def update_quantity(self, item, quantity):
+        """Update the quantity of an item in the cart."""
+        if item in self.cart:
+            if quantity <= 0:
+                self.remove_from_cart(item)
+            else:
+                self.cart[item] = quantity
+
+    def view_cart(self):
+        """Return the current items in the cart."""
+        return self.cart
+
+# Initialize the shopping cart
+cart = ShoppingCart()
+
+# Sample list of image paths (could be fetched from a database or filesystem)
+images = ['images/g.jpg', 'images/g2.jpg', 'images/g3.jpg', 'images/g4.jpg', 'images/g5.jpg',
+          'images/g6.jpg', 'images/g7.jpg', 'images/g8.jpg', 'images/g9.jpg', 'images/g10.jpg',
+          'images/g11.jpg', 'images/g12.jpg', 'images/g13.jpg', 'images/g14.jpg', 'images/g15.jpg',
+          'images/g16.jpg', 'images/g17.jpg', 'images/g18.jpg', 'images/g19.jpg', 'images/g20.jpg',
+          'images/g21.jpg', 'images/g22.jpg', 'images/g23.jpg', 'images/g24.jpg', 'images/g25.jpg',
+          'images/g26.jpg', 'images/g27.jpg', 'images/g28.jpg', 'images/g29.jpg', 'images/g30jpg',
+          'images/g31.jpg', 'images/g32.jpg', 'images/g33.jpg', 'images/g34.jpg', 'images/g35.jpg',
+          'images/g36.jpg', 'images/g37.jpg', 'images/g38.jpg', 'images/g38.jpg', 'images/g40.jpg',
+          'images/g41.jpg', 'images/g42.jpg', 'images/g43.jpg', 'images/g44.jpg', 'images/g45.jpg',
+          'images/g46.jpg', 'images/g47.jpg', 'images/g.48jpg', 'images/g49.jpg', 'images/g50.jpg']
+
+@app.route('/cloth')
+def grid_view():
+    # Pagination logic
+    per_page = 25  # Number of items per page (5x5 grid)
+    page = request.args.get('page', 1, type=int)  # Get the current page, default is 1
+
+    # Calculate the start and end index for the current page
+    start = (page - 1) * per_page
+    end = start + per_page
+
+    # Paginate the images list
+    paginated_images = images[start:end]
+
+    # Calculate total pages
+    total_pages = ceil(len(images) / per_page)
+
+    return render_template('cloth.html', images=paginated_images, page=page, total_pages=total_pages)
+
+
+
+@app.route('/index', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        if 'add' in request.form:
+            item = request.form.get('item', 'Stylish Wristwatch')  # Default item
+            quantity = int(request.form.get('quantity', 1))
+            cart.add_to_cart(item, quantity)
+        elif 'remove' in request.form:
+            item = request.form.get('item')
+            cart.remove_from_cart(item)
+        elif 'update' in request.form:
+            item = request.form.get('item')
+            quantity = int(request.form.get('quantity'))
+            cart.update_quantity(item, quantity)
+        return redirect(url_for('index'))  # Redirect to the same page after processing
+
+    return render_template('index.html', cart=cart.view_cart())
+
+
+@app.route('/')
+def landingpage():
     
+        return render_template('homepage.html')
 
-    <div id="cart">
-        <h3>Shopping Cart</h3>
-        <ul>
-            {% for item, quantity in cart.items() %}
-                <li class="cart-item">
-                    {{ item }}:
-                    <div class="quantity-controls">
-                        <form method="POST" action="/" style="display: inline;">
-                            <input type="hidden" name="item" value="{{ item }}">
-                            <input type="number" name="quantity" value="{{ quantity }}" min="0" style="width: 40px;" readonly>
-                            <button type="submit" name="update">+</button>
-                        </form>
-                        <form method="POST" action="/" style="display: inline;">
-                            <input type="hidden" name="item" value="{{ item }}">
-                            <input type="number" name="quantity" value="{{ quantity - 1 }}" min="0" style="width: 40px;" hidden>
-                            <button type="submit" name="update">-</button>
-                        </form>
-                    </div>
-                    <form method="POST" action="/" style="display: inline;">
-                        <input type="hidden" name="item" value="{{ item }}">
-                        <button type="submit" name="remove">Remove</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-        <p>Total items in cart: {{ cart|length }}</p>
-    </div>
-                                                                                                                                                </body>
-</html>
+@app.route('/cartlist')
+def cartlist():
+    """Render the cart page displaying the current items in the cart."""
+    return render_template('cart_list.html', cart=cart.view_cart())
 
-  
+
+@app.route("/cloth")
+def clothe():
+    return render_template('cloth.html', images=paginated_images, page=page, total_pages=total_pages)
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

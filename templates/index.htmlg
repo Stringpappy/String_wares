@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+h<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,11 +8,67 @@
   <title>Flirtme</title>
 </head>
 <body>
+  <header>
+    <div class="brand">String Wares</div>
+    
+    <div class="dropdown">
+        <button class="button">Menu</button>
+        <div class="dropdown-content">
+            <a href="#">Item 1</a>
+            <a href="#">Item 2</a>
+            <a href="#">Item 3</a>
+            <a href="#">Item 4</a>
+            <a href="#">Item 5</a>
+            <a href="#">Item 6</a>
+            <a href="#">Item 7</a>
+        </div>
+    </div>
+    
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search...">
+        <button class="search-button">Search</button>
+    </div>
+    
+    <button class="button"><div id="cart">
+        <h1>Cart</h1>
+      <div class="dropdown-content">
+        <ul>
+            {% for item, quantity in cart.items() %}
+                <li class="cart-item">
+                    {{ item }}:
+                    <div class="quantity-controls">
+                        <form method="POST" action="/" style="display: inline;">
+                            <input type="hidden" name="item" value="{{ item }}">
+                            <input type="number" name="quantity" value="{{ quantity }}" min="0" style="width: 40px;" readonly>
+                            <button type="submit" name="update">+</button>
+                        </form>
+                        <form method="POST" action="/" style="display: inline;">
+                            <input type="hidden" name="item" value="{{ item }}">
+                            <input type="number" name="quantity" value="{{ quantity - 1 }}" min="0" style="width: 40px;" hidden>
+                            <button type="submit" name="update">-</button>
+                        </form>
+                    </div>
+                    <form method="POST" action="/" style="display: inline;">
+                        <input type="hidden" name="item" value="{{ item }}">
+                        <button type="submit" name="remove">Remove</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+        <p>Total items in cart: {{ cart|length }}</p>
+    </div></button>
+    <button class="button">Sign In</button>
+    
+      </div>
+        
+    </header>
     <div class="productbox">
         <div class="product">
+          <div class="productpix">   </div>
         <h2>Stylish Wristwatch</h2>
         <p>Price: $99.99</p>
-	<img src="storage/emulated/0/Download/ac.jpeg" alt="Description of image">
+        <img src="storage/emulated/0/Download/ac.jpeg" alt="Description of image">
+
         <form method="POST" action="/">
             <input type="hidden" name="item" value="Stylish Wristwatch">
             <label for="quantity">Quantity:</label>
@@ -23,6 +79,7 @@
         <div class="product">
         <h2>Guitar</h2>
         <p>Price: $99.99</p>
+         <img src="storage/emulated/0/Download/bz.jpg" alt="Description of image">
         <form method="POST" action="/">
             <input type="hidden" name="item" value="Guitar">
             <label for="quantity">Quantity:</label>
@@ -34,7 +91,6 @@
         <h2>blazzer</h2>
         <p>Price: $99.99</p>
         <form method="POST" action="/">
-  	<img src="storage/emulated/0/Download/bz.png" alt="Description of image">
             <input type="hidden" name="item" value="Blazzer">
             <label for="quantity">Quantity:</label>
             <input type="number" name="quantity" min="1" value="1">
@@ -67,6 +123,9 @@
         <div class="product">
         <h2>blanket</h2>
         <p>Price: $40.0</p>
+        <div class="goodspix"></div>
+        <img src="storage/emulated/Download/ac.jpeg" alt="Description of image">
+
         <form method="POST" action="/">
             <input type="hidden" name="item" value="Blanket">
             <label for="quantity">Quantity:</label>
@@ -75,7 +134,7 @@
         </form>
         </div>
         <div class="product">
-        <h2>fam</h2>
+        <h2>fan</h2>
         <p>Price: $99.99</p>
         <form method="POST" action="/">
             <input type="hidden" name="item" value="Fan">
@@ -85,10 +144,10 @@
         </form>
         </div>
         <div class="product">
-        <h2>Stylish Wristwatch</h2>
+        <h2>perfumes</h2>
         <p>Price: $30.0</p>
         <form method="POST" action="/">
-            <input type="hidden" name="item" value="Stylish Wristwatch">
+            <input type="hidden" name="item" value="Perfumes">
             <label for="quantity">Quantity:</label>
             <input type="number" name="quantity" min="1" value="1">
             <button type="submit" name="add">Add to Cart</button>
@@ -229,32 +288,8 @@
 
     
 
-    <div id="cart">
-        <h3>Shopping Cart</h3>
-        <ul>
-            {% for item, quantity in cart.items() %}
-                <li class="cart-item">
-                    {{ item }}:
-                    <div class="quantity-controls">
-                        <form method="POST" action="/" style="display: inline;">
-                            <input type="hidden" name="item" value="{{ item }}">
-                            <input type="number" name="quantity" value="{{ quantity }}" min="0" style="width: 40px;" readonly>
-                            <button type="submit" name="update">+</button>
-                        </form>
-                        <form method="POST" action="/" style="display: inline;">
-                            <input type="hidden" name="item" value="{{ item }}">
-                            <input type="number" name="quantity" value="{{ quantity - 1 }}" min="0" style="width: 40px;" hidden>
-                            <button type="submit" name="update">-</button>
-                        </form>
-                    </div>
-                    <form method="POST" action="/" style="display: inline;">
-                        <input type="hidden" name="item" value="{{ item }}">
-                        <button type="submit" name="remove">Remove</button>
-                    </form>
-                </li>
-            {% endfor %}
-        </ul>
-        <p>Total items in cart: {{ cart|length }}</p>
-    </div>
+    
                                                                                                                                                 </body>
 </html>
+
+  

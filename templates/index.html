@@ -1,4 +1,4 @@
-h<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -8,30 +8,276 @@ h<!DOCTYPE html>
   <title>Flirtme</title>
 </head>
 <body>
-  <header>
-    <div class="brand">String Wares</div>
-    
-    <div class="dropdown">
-        <button class="button">Menu</button>
-        <div class="dropdown-content">
-            <a href="#">Item 1</a>
-            <a href="#">Item 2</a>
-            <a href="#">Item 3</a>
-            <a href="#">Item 4</a>
-            <a href="#">Item 5</a>
-            <a href="#">Item 6</a>
-            <a href="#">Item 7</a>
+    <header>
+        <div class="brand">String Wares</div>
+        
+        <div class="dropdown">
+            <button class="button">Menu</button>
+            <div class="dropdown-content">
+                <a href="{{url_for('clothe')}}">Cloth</a>
+                <a href="#">Item 2</a>
+                <a href="#">Item 3</a>
+                <a href="#">Item 4</a>
+                <a href="#">Item 5</a>
+                <a href="#">Item 6</a>
+                <a href="#">Item 7</a>
+            </div>
         </div>
+        
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
+        
+        <button class="button"><a  href="{{ url_for('cartlist') }}">Go to Cart</a></a>
+            
+          </button>
+        <button class="button"><a href="{{url_for('signup')}}">signup</a></button>
+        
+          </div>
+            
+        </header>
+    <div class="productbox">
+        <div class="product">
+        <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Stylish Wristwatch</h2>
+        <p>Price: $99.99</p>
+	
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Stylish Wristwatch">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Guitar</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Guitar">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>blazzer</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Blazzer">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Clipper</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Clipper">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+     
     </div>
-    
-    <div class="search-container">
-        <input type="text" class="search-bar" placeholder="Search...">
-        <button class="search-button">Search</button>
+    <div class="productbox">
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Television</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Television">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>blanket</h2>
+        <p>Price: $40.0</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Blanket">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>fam</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Fan">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Stylish Wristwatch</h2>
+        <p>Price: $30.0</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Stylish Wristwatch">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+     
     </div>
+    <div class="productbox">
+        <div class="product">
+        <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Microwave</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Microwave">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>bed</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Bed">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>shoe</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Shoe">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Air Conditon</h2>
+        <p>Price: $150.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Air Condition">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+     
+    </div>
+    <div class="productbox">
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Headset</h2>
+        <p>Price: $20.0</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Headset">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Phone</h2>
+        <p>Price: $300.0</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Phone">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Trousers</h2>
+        <p>Price: $19.89</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Trousers">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Dumbel</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Dumbel">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+     
+    </div> 
+    <div class="productbox">
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Stabilizer</h2>
+        <p>Price: $99.99</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Stabilizer">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Iron</h2>
+        <p>Price: $20.0</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Iron">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Laptop</h2>
+        <p>Price: $300.55</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Laptop">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+        <div class="product">
+            <img style=" border: 3px solid red" class="cloth" src="{{ url_for('static', filename='images/g.jpg') }}" alt="">
+        <h2>Sewing machine</h2>
+        <p>Price: $55.0</p>
+        <form method="POST" action="/">
+            <input type="hidden" name="item" value="Sewing machine">
+            <label for="quantity">Quantity:</label>
+            <input type="number" name="quantity" min="1" value="1">
+            <button type="submit" name="add">Add to Cart</button>
+        </form>
+        </div>
+     
+    </div>
+
     
-    <button class="button"><div id="cart">
-        <h1>Cart</h1>
-      <div class="dropdown-content">
+
+    <div id="cart">
+        <h3>Shopping Cart</h3>
         <ul>
             {% for item, quantity in cart.items() %}
                 <li class="cart-item">
@@ -56,240 +302,6 @@ h<!DOCTYPE html>
             {% endfor %}
         </ul>
         <p>Total items in cart: {{ cart|length }}</p>
-    </div></button>
-    <button class="button">Sign In</button>
-    
-      </div>
-        
-    </header>
-    <div class="productbox">
-        <div class="product">
-          <div class="productpix">   </div>
-        <h2>Stylish Wristwatch</h2>
-        <p>Price: $99.99</p>
-        <img src="storage/emulated/0/Download/ac.jpeg" alt="Description of image">
-
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Stylish Wristwatch">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Guitar</h2>
-        <p>Price: $99.99</p>
-         <img src="storage/emulated/0/Download/bz.jpg" alt="Description of image">
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Guitar">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>blazzer</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Blazzer">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Clipper</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Clipper">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
     </div>
-    <div class="productbox">
-        <div class="product">
-        <h2>Television</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Television">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>blanket</h2>
-        <p>Price: $40.0</p>
-        <div class="goodspix"></div>
-        <img src="storage/emulated/Download/ac.jpeg" alt="Description of image">
-
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Blanket">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>fan</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Fan">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>perfumes</h2>
-        <p>Price: $30.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Perfumes">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
-    <div class="productbox">
-        <div class="product">
-        <h2>Microwave</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Microwave">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>bed</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Bed">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>shoe</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Shoe">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Air Conditon</h2>
-        <p>Price: $150.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Air Condition">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
-    <div class="productbox">
-        <div class="product">
-        <h2>Headset
-        </h2>
-        <p>Price: $20.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Headset">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Phone</h2>
-        <p>Price: $300.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Phone">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Trousers</h2>
-        <p>Price: $19.89</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Trousers">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Dumbel</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Dumbel">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div> 
-    <div class="productbox">
-        <div class="product">
-        <h2>Stabilizer</h2>
-        <p>Price: $99.99</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Stabilizer">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Iron</h2>
-        <p>Price: $20.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Iron">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Laptop</h2>
-        <p>Price: $300.55</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Laptop">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-        <div class="product">
-        <h2>Sewing machine</h2>
-        <p>Price: $55.0</p>
-        <form method="POST" action="/">
-            <input type="hidden" name="item" value="Sewing machine">
-            <label for="quantity">Quantity:</label>
-            <input type="number" name="quantity" min="1" value="1">
-            <button type="submit" name="add">Add to Cart</button>
-        </form>
-        </div>
-     
-    </div>
-
-    
-
-    
                                                                                                                                                 </body>
 </html>
-
-  
