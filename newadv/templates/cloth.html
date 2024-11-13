@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            width: 250px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            margin: 10px;
+        }
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .add-to-cart {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 10px;
+            text-decoration: none;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+	<h1>Cloth</h1>
+
+    {% for product in products %}
+        <div class="product">
+            <h2>{{ product.name }}</h2>
+            <div class="product-images">
+                {% for img in product_images[product.type] %}
+                    <div>
+                        <img src="{{ img }}" alt="{{ product.name }}">
+                        <p class="price">${{ product.price }}</p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+
+    <!-- Pagination -->
+    <div class="pagination">
+        {% if page > 1 %}
+            <a href="?page={{ page - 1 }}">Previous</a>
+        {% endif %}
+        
+        {% for p in range(1, total_pages + 1) %}
+            <a href="?page={{ p }}" class="{% if p == page %}active{% endif %}">{{ p }}</a>
+        {% endfor %}
+        
+        {% if page < total_pages %}
+            <a href="?page={{ page + 1 }}">Next</a>
+        {% endif %}
+    </div>
+</body>
+</html>
+

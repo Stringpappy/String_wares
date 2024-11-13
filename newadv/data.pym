@@ -1,0 +1,56 @@
+# data.py
+import shopify
+import requests
+from config import SHOPIFY_API_KEY, SHOPIFY_API_PASSWORD, SHOPIFY_STORE_NAME
+
+def authenticate_shopify():
+    # Authenticate using Shopify API
+#shop_url = f"https://{d7cc4ec8fef8d773ca288894ca428502}:{21dbaf914e610bc34bd4d2964123f9e5}@{stringlord}"
+
+    shop_url = f"https://{d7cc4ec8fef8d773ca288894ca428502}:{21dbaf914e610bc34bd4d2964123f9e5}@{stringlord}"
+
+    shopify.ShopifyResource.set_site(shop_url)
+
+def get_shopify_products(page=1, per_page=5):
+    """Fetch products from Shopify with pagination."""
+    authenticate_shopify()
+
+    # Get products with pagination
+    products = shopify.Product.find(limit=per_page, page=page)
+
+    product_list = []
+    for product in products:
+        product_list.append({
+            'name': product.title,
+            'id': product.id,
+            'type': product.product_type,  # Product type (T-shirt, Shoes, etc.)
+            'price': product.variants[0].price,  # Assuming first variant for price
+            'images': product.images  # List of product images
+        })
+
+    return product_list
+
+def generate_images_for_product(product_type):
+    """Generate image URLs for products based on their type."""
+    # For simplicity, use Shopify image URLs
+    images = []
+    if product_type == 'T-shirt':
+        images = [f'https://via.placeholder.com/300x200?text=T-shirt+{i}' for i in range(1, 16)]
+    elif product_type == 'Blazers':
+        images = [f'https://via.placeholder.com/300x200?text=Blazer+{i}' for i in range(1, 16)]
+    elif product_type == 'Gowns':
+        images = [f'https://via.placeholder.com/300x200?text=Gown+{i}' for i in range(1, 16)]
+    elif product_type == 'Shoes':
+        images = [f'https://via.placeholder.com/300x200?text=Shoes+{i}' for i in range(1, 16)]
+    # Add other types similarly...
+    return images
+
+images_data = [
+    {'src': 'https://via.placeholder.com/300x200?text=Image+1', 'caption': 'This is the first image', 'link': 'https://example.com/image1'},
+    {'src': 'https://via.placeholder.com/300x200?text=Image+2', 'caption': 'This is the second image', 'link': 'https://example.com/image2'},
+    {'src': 'https://via.placeholder.com/300x200?text=Image+3', 'caption': 'This is the third image', 'link': 'https://example.com/image3'},
+    {'src': 'https://via.placeholder.com/300x200?text=Image+4', 'caption': 'This is the fourth image', 'link': 'https://example.com/image4'},
+    {'src': 'https://via.placeholder.com/300x200?text=Image+5', 'caption': 'This is the fifth image', 'link': 'https://example.com/image5'},
+    # Add more images as needed...
+]
+
